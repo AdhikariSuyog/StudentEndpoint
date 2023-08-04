@@ -1,0 +1,22 @@
+micronaut:
+  application:
+    name : student-crud
+
+jpa:
+  default:
+    packages:
+      - 'com.example.repository'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql : true
+
+datasources:
+  default:
+    db-type: postgres
+    dialect: POSTGRES
+    url: jdbc:postgresql://localhost:5432/stdenddb
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: qwerty
