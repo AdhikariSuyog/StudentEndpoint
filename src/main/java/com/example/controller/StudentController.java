@@ -48,7 +48,6 @@ public class StudentController {
         var entity = studentService.createStudent(studentEntity);
         return StudentMapper.fromEntity(entity);
     }
-
 //    @Put("/{roll}")
 //    public MutableHttpResponse<Object> getStudentById(@PathVariable Integer roll, @Body StudentEntity updatedStudent) {
 //        StudentEntity studentEntity = studentService.getStudentById(roll).orElse(null);
