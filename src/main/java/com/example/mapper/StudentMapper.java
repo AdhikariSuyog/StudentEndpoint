@@ -5,8 +5,6 @@ import com.example.repository.StudentEntity;
 
 public class StudentMapper {
 
-    private StudentMapper() {
-    }
 
     public static Student fromEntity(StudentEntity studentEntity) {
         return Student.builder()

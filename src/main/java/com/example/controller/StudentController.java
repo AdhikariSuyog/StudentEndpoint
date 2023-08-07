@@ -36,23 +36,28 @@ public class StudentController {
                 .map(entity -> StudentMapper.fromEntity(entity))
                 .toList();
     }
+    @Get("/{roll}")
+    public Student getStudentById(@PathVariable int roll) {
+        return studentService.getStudentById(roll)
+                .map(entity -> StudentMapper.fromEntity(entity)).orElse(null);
+    }
 
 
-    @Post(value = "/insert", produces = MediaType.APPLICATION_JSON)
+    @Post(value = "/insert",consumes = MediaType.APPLICATION_JSON ,produces = MediaType.APPLICATION_JSON)
     public Student addStudent(@Body StudentEntity studentEntity) {
         var entity = studentService.createStudent(studentEntity);
         return StudentMapper.fromEntity(entity);
     }
 
-    @Put("/{roll}")
-    public MutableHttpResponse<Object> getStudentById(@PathVariable Integer roll, @Body StudentEntity updatedStudent) {
-        StudentEntity studentEntity = studentService.getStudentById(roll).orElse(null);
-        if (studentEntity != null) {
-            var student = studentService.createStudent(updatedStudent);
-            return HttpResponse.ok(StudentMapper.fromEntity(student));
-        }
-        return HttpResponse.notFound();
-    }
+//    @Put("/{roll}")
+//    public MutableHttpResponse<Object> getStudentById(@PathVariable Integer roll, @Body StudentEntity updatedStudent) {
+//        StudentEntity studentEntity = studentService.getStudentById(roll).orElse(null);
+//        if (studentEntity != null) {
+//            var student = studentService.createStudent(updatedStudent);
+//            return HttpResponse.ok(StudentMapper.fromEntity(student));
+//        }
+//        return HttpResponse.notFound();
+//    }
 
 
     @Put("/update")
