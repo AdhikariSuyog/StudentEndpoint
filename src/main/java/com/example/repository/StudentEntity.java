@@ -17,7 +17,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "student")
 @Builder
 //@MappedEntity
-//@Serdeable.Deserializable
+@Serdeable.Deserializable
+@Serdeable.Serializable
 public class StudentEntity {
 
     @Id

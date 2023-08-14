@@ -4,7 +4,7 @@ import io.micronaut.serde.annotation.Serdeable;
 import lombok.Builder;
 
 @Builder
-//@Serdeable.Serializable
+@Serdeable.Serializable
 public record Student(int roll,
                       String name,
                       String address,
